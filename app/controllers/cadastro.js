@@ -18,6 +18,12 @@ module.exports.cadastrar = function(application, req, res){
         return;
     }
 
+    var connection = application.config.mongoConfig;
+
+    var usuariosDAO = new application.app.models.usuariosDAO(connection)
+
+    usuariosDAO.inserirCadastro(dadosForm)
+
     res.send('podemos cadastrar');
 
 }
