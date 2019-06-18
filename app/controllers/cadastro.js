@@ -9,8 +9,9 @@ module.exports.cadastrar = function(application, req, res){
     req.assert('nome', 'Nome não pode ser vazio').notEmpty();
     req.assert('usuario', 'Usuário não pode ser vazio').notEmpty();
     req.assert('senha', 'Senha não pode ser vazia').notEmpty();
+    req.assert('senha', 'Senha precisa ter entre 5 e 15 caracteres').isLength({ min: 5, max:15 });
     req.assert('casa', 'Casa não pode ser vazia').notEmpty();
-
+    
     var erros = req.validationErrors();
 
     if(erros){
