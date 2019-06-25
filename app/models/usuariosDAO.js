@@ -15,7 +15,6 @@ usuariosDAO.prototype.inserirCadastro = function(usuario){
 usuariosDAO.prototype.verificarLogin = function(usuario, req,res){
     this._connection.open( function(err, mongocliente){
         mongocliente.collection("usuarios", function(err, collection){
-            /*collection.find({usuario : usuario.usuario, senha: usuario.senha})*/
             collection.find(usuario).toArray(function(error, result){
                 
                 if (result[0] != undefined){
